@@ -1,0 +1,22 @@
+<hazelcast xsi:schemaLocation="https://www.hazelcast.com/schema/config https://www.hazelcast.com/schema/config/hazelcast-config-3.6.xsd"
+           xmlns="http://www.hazelcast.com/schema/config"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+
+    <cache name="githubUser">
+        <eviction size="100"/>
+        <statistics-enabled>true</statistics-enabled>
+        <expiry-policy-factory>
+            <timed-expiry-policy-factory expiry-policy-type="CREATED"
+                                         duration-amount="60"
+                                         time-unit="SECONDS"/>
+        </expiry-policy-factory>
+    </cache>
+
+    <network>
+        <join>
+            <multicast enabled="true"/>
+        </join>
+    </network>
+
+</hazelcast>
